@@ -78,9 +78,6 @@ return {
     vim.api.nvim_create_autocmd("Filetype", {
       pattern = { "c", "Makefile" },
       callback = function()
-        -- vim.opt.tabstop = 4
-        -- vim.opt.shiftwidth = 4
-        -- vim.opt.expandtab = false
         vim.cmd("setlocal tabstop=4 shiftwidth=4 noexpandtab")
         vim.cmd("setlocal listchars=tab:→\\ ,trail:·")
         vim.cmd("setlocal list")
