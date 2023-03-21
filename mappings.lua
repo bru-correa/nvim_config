@@ -13,12 +13,6 @@
 -- setting a mapping to false will disable it
 -- ["<esc>"] = false,
 
-local header = require("header42")
-header.setup({
-  login = "bcorrea",
-  email = "bruuh.cor@gmail.com"
-})
-
 return {
   n = {
     -- Center the cursor after scrolling
