@@ -9,4 +9,20 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  {
+    "folke/todo-comments.nvim",
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup()
+    end,
+  },
+  {
+    "vinicius507/header42.nvim",
+    config = function()
+      require("header42").setup({
+        user = "bcorrea-",
+        email = "bruuh.cor@gmail.com",
+      })
+    end,
+  },
 }
