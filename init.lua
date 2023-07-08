@@ -33,7 +33,8 @@ return {
           -- "go",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
-          "c", "cpp",
+          "c",
+          "cpp",
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
@@ -59,6 +60,7 @@ return {
       },
     },
   },
+
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -75,13 +77,39 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+
+    -- Terminal window mappings
+    function _G.set_terminal_keymaps()
+      local opts = { buffer = 0 }
+      vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+      vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+    end
+
+    vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
+
+    -- Custom options based on filetype
     vim.api.nvim_create_autocmd("Filetype", {
       pattern = { "c", "Makefile", "cpp" },
       callback = function()
-        vim.cmd("setlocal tabstop=4 shiftwidth=4 noexpandtab")
-        vim.cmd("setlocal listchars=tab:→\\ ,trail:·")
-        vim.cmd("setlocal list")
+        vim.cmd "setlocal tabstop=4 shiftwidth=4 noexpandtab"
+        vim.cmd "setlocal listchars=tab:→\\ ,trail:·"
+        vim.cmd "setlocal list"
       end,
     })
+
+    if vim.fn.has "wsl" == 1 then
+      vim.g.clipboard = {
+        name = "WslClipboard",
+        copy = {
+          ["+"] = "clip.exe",
+          ["*"] = "clip.exe",
+        },
+        paste = {
+          ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+          ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        },
+        cache_enabled = 0,
+      }
+    end
   end,
 }

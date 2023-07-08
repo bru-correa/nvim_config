@@ -6,6 +6,9 @@ return {
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = {
       -- ensure_installed = { "lua_ls" },
+      setup = {
+        clangd = function(_, opts) opts.capabilites.offsetEncoding = { "utf-16" } end,
+      },
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
