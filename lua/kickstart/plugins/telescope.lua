@@ -60,11 +60,17 @@ return {
           mappings = {
             i = {
               ['<C-enter>'] = 'to_fuzzy_refine',
+              ['<C-j>'] = require('telescope.actions').move_selection_next,
+              ['<C-k>'] = require('telescope.actions').move_selection_previous,
+              ['<C-o>'] = require('telescope.actions').select_default,
             },
             n = {
               ['\\'] = require('telescope.actions').select_horizontal,
               ['|'] = require('telescope.actions').select_vertical,
               ['q'] = require('telescope.actions').close,
+              ['<C-j>'] = require('telescope.actions').move_selection_next,
+              ['<C-k>'] = require('telescope.actions').move_selection_previous,
+              ['<C-o>'] = require('telescope.actions').select_default,
             },
           },
         },

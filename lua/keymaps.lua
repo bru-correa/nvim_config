@@ -55,3 +55,12 @@ vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit', silent = true })
 
 -- Open file tree
 vim.keymap.set('n', '<leader>e', ':Neotree position=current<CR>', { desc = 'Explorer', silent = true })
+
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
