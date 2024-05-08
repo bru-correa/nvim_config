@@ -6,7 +6,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 require("neodev").setup {}
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "lua_ls", "clangd", "dockerls", "docker_compose_language_service" }
+local servers = { "html", "cssls", "lua_ls", "clangd", "dockerls", "docker_compose_language_service", "pyright" }
 
 local map = vim.keymap.set
 
