@@ -7,6 +7,9 @@ local options = {
     javascript = { "prettier" },
     typescriptreact = { "prettier" },
     javascriptreact = { "prettier" },
+    htmldjango = { "djlint" },
+    python = { "ruff" },
+    astro = { "prettier" },
   },
 
   format_on_save = {

@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
+    event = "BufWritePre",
     config = function()
       require "configs.conform"
     end,
@@ -31,6 +31,8 @@ return {
         "hadolint",
         "dockerfile-language-server",
         "docker-compose-language-server",
+        "astro-language-server",
+        "eslint",
       },
     },
   },
@@ -55,6 +57,7 @@ return {
         "bash",
         "scss",
         "toml",
+        "astro",
       },
     },
   },
@@ -67,6 +70,8 @@ return {
       lint.linters_by_ft = {
         json = { "jsonlint" },
         dockerfile = { "hadolint" },
+        htmldjango = { "djlint" },
+        python = { "ruff" },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
@@ -132,6 +137,7 @@ return {
       "typescript",
       "typescriptreact",
       "html",
+      "astro",
     },
   },
 
@@ -294,5 +300,12 @@ return {
   {
     "AstroNvim/astrotheme",
     opts = {},
+  },
+
+  {
+    "nvim-pack/nvim-spectre",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+    lazy = false,
   },
 }

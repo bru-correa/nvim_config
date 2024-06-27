@@ -46,12 +46,12 @@ map("n", "<leader>/", function()
 end, { desc = "Comment Toggle" })
 
 -- Comment block
-map(
-  "v",
-  "<leader>/",
-  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-  { desc = "Comment Toggle" }
-)
+-- map(
+--   "v",
+--   "<leader>/",
+--   "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+--   { desc = "Comment Toggle" }
+-- )
 
 -- Toggle explorer
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Explorer" })
@@ -77,3 +77,6 @@ map("n", "<leader>Sc", "<cmd>SessionLoad<CR>", { desc = "Restore Current Dir" })
 map("n", "<leader>Sr", "<cmd>SessionLoadLast<CR>", { desc = "Restore Last Session" })
 map("n", "<leader>Ss", "<cmd>SessionStop<CR>", { desc = "Stop Session" })
 map("n", "<leader>Sl", "<cmd>Telescope persisted<CR>", { desc = "List Sessions" })
+
+-- Spectre
+map("n", "<leader>R", "<cmd>Spectre<CR>", { desc = "Spectre Replace" })
